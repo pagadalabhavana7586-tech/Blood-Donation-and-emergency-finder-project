@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Blood Request Dashboard</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>Blood Request Dashboard</h1>
+</header>
+
+<div class="table-container">
+    <h2>Manage Blood Requests</h2>
+
+    <p class="notice">
+        Demo administrator page.
+        Authentication is required before public use.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Blood Group</th>
+                <th>City</th>
+                <th>Hospital</th>
+                <th>Contact</th>
+                <th>Urgency</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="r : ${requests}">
+                <td th:text="${r.patientName}"></td>
+                <td th:text="${r.bloodGroup}"></td>
+                <td th:text="${r.city}"></td>
+                <td th:text="${r.hospital}"></td>
+                <td th:text="${r.contactNumber}"></td>
+                <td th:text="${r.urgency}"></td>
+                <td th:text="${r.status}"></td>
+
+                <td>
+                    <form method="post"
+                          th:action="@{/admin/requests/{id}/status(id=${r.id})}">
+
+                        <select name="status">
+                            <option>PENDING</option>
+                            <option>CONTACTED</option>
+                            <option>FULFILLED</option>
+                            <option>CANCELLED</option>
+                        </select>
+
+                        <button type="submit">
+                            Update
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/}">Back to Home</a>
+</div>
+
+</body>
+</html>
