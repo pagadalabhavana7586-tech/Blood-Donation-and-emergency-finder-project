@@ -1,0 +1,57 @@
+
+package com.lifelink.model;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+
+@Entity
+public class BloodRequest {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    private String patientName;
+
+    @NotBlank
+    private String bloodGroup;
+
+    @NotBlank
+    private String city;
+
+    @NotBlank
+    private String hospital;
+
+    @NotBlank
+    @Pattern(regexp = "[0-9]{10}")
+    private String contactNumber;
+
+    @NotBlank
+    private String urgency;
+
+    private String status = "PENDING";
+
+    public Long getId() { return id; }
+
+    public String getPatientName() { return patientName; }
+    public void setPatientName(String v) { patientName = v; }
+
+    public String getBloodGroup() { return bloodGroup; }
+    public void setBloodGroup(String v) { bloodGroup = v; }
+
+    public String getCity() { return city; }
+    public void setCity(String v) { city = v; }
+
+    public String getHospital() { return hospital; }
+    public void setHospital(String v) { hospital = v; }
+
+    public String getContactNumber() { return contactNumber; }
+    public void setContactNumber(String v) { contactNumber = v; }
+
+    public String getUrgency() { return urgency; }
+    public void setUrgency(String v) { urgency = v; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String v) { status = v; }
+}
