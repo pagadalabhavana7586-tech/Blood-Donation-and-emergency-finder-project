@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Find Donors</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>Find Blood Donors</h1>
+</header>
+
+<div class="form-container">
+
+    <p th:if="${param.registered}" class="success">
+        Donor registered successfully!
+    </p>
+
+    <h2>Search Donors</h2>
+
+    <form method="get" th:action="@{/donors}">
+
+        <label>Blood Group</label>
+        <select name="bloodGroup">
+            <option value="">All Blood Groups</option>
+            <option th:each="g : ${{
+                'A+','A-','B+','B-',
+                'AB+','AB-','O+','O-'
+            }}"
+                th:value="${g}"
+                th:text="${g}"
+                th:selected="${g == bloodGroup}">
+            </option>
+        </select>
+
+        <label>City</label>
+        <input type="text"
+               name="city"
+               th:value="${city}"
+               placeholder="Enter City">
+
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<div class="table-container">
+    <h2>Available Registered Donors</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Blood Group</th>
+                <th>City</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="donor : ${donors}">
+                <td th:text="${donor.name}"></td>
+                <td th:text="${donor.bloodGroup}"></td>
+                <td th:text="${donor.city}"></td>
+                <td th:text="${donor.phone}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p th:if="${#lists.isEmpty(donors)}">
+        No donors found.
+    </p>
+
+    <p class="notice">
+        A donor listing does not confirm medical
+        eligibility or real-time availability.
+    </p>
+
+    <a th:href="@{/}">Back to Home</a>
+</div>
+
+</body>
+</html>
