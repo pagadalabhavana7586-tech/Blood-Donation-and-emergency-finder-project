@@ -1,0 +1,221 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    color: #252525;
+}
+
+header {
+    background: #b71c1c;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 34px;
+}
+
+nav {
+    background: #8e1515;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background: linear-gradient(
+        120deg, #ffebee, #ffffff
+    );
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 38px;
+    color: #b71c1c;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn,
+button {
+    background: #c62828;
+    color: white;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn:hover,
+button:hover {
+    background: #8e1515;
+}
+
+.features {
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    width: 270px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #00000012;
+}
+
+.card h3 {
+    color: #c62828;
+}
+
+.form-container {
+    max-width: 520px;
+    margin: 35px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #b71c1c;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #ef9a9a;
+}
+
+.table-container {
+    margin: 30px auto;
+    max-width: 1150px;
+    padding: 20px;
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #c62828;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #fff5f5;
+}
+
+td form {
+    display: flex;
+    gap: 8px;
+}
+
+.success {
+    background: #e8f5e9;
+    color: #216b32;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.notice {
+    background: #fff4df;
+    color: #705328;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+footer {
+    background: #8e1515;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .form-container {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+    }
+
+    table {
+        min-width: 700px;
+    }
+}
